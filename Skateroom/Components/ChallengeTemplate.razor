@@ -1,0 +1,71 @@
+﻿@inherits LayoutComponentBase
+@inject EscapeRoomService SkateRoomService
+@inject NavigationManager NavigationManager
+@inject JSAudioService JSAudioService
+
+<div class="container">
+    @*<img class="banner-img" src="img/worldFireAsteroid.jpg" alt="SkateRoom Banner" />*@
+    <div class="title">
+        <h2>@Title</h2>
+    </div>
+    
+    <div class="challenge-description">
+    @Description
+    </div>
+
+
+    <div style="text-align-center; margin-top: 40px; margin-bottom: 20px;">
+        <img src="@ImageSource" alt="@Title" />
+    </div>
+    
+    <div class="challenge-puzzle">
+        @ChildContent
+    </div>
+
+    <div class="button-send-answer">
+        <label style="margin-top:20px;" for="answer">Introduce el código para completar la prueba:</label>
+        <input style="margin-top:10px;" id="answer" @bind="answer" />
+        <button class="next-button" @onclick="NextChallengeAsync">Enviar Respuesta</button>
+    </div>
+    
+    @if (isAnswerChecked && !isAnswerCorrect)
+    {
+        <p>Lo siento, la respuesta no es correcta. Por favor, vuelve a intentarlo.</p>
+    }
+
+</div>
+
+@code {
+    [Parameter] public string Title { get; set; } = String.Empty;
+    [Parameter] public string ImageSource { get; set; } = String.Empty;
+    [Parameter] public MarkupString Description { get; set; }
+    [Parameter] public int ChallengerNumber { get; set; }
+    [Parameter] public RenderFragment? ChildContent { get; set; }
+
+    private string answer;
+    private bool isAnswerChecked;
+    private bool isAnswerCorrect;
+
+    public async Task NextChallengeAsync()
+    {
+        isAnswerChecked = true;
+        isAnswerCorrect = SkateRoomService.TryAnswerCurrentChallenge(answer);
+        if (isAnswerCorrect)
+        {
+            await JSAudioService.PlayCorrectAnswerAsync();
+            if (SkateRoomService.HasMoreChallenges())
+            {
+                NavigationManager.NavigateTo($"/challenge/{ChallengerNumber + 1}");
+
+            }
+            else
+            {
+                NavigationManager.NavigateTo($"/victory");
+            }
+        }
+        else
+        {
+            await JSAudioService.PlayFailAnswerAsync();
+        }
+    }
+}

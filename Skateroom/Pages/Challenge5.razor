@@ -1,0 +1,11 @@
+﻿@page "/challenge/5"
+
+<ChallengeTemplate Title="@($"El viaje final")" ImageSource="@image" ChallengerNumber="@(challengeNumber)" Description="description">
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>Colisión contra el asteroide para desviar su trayectoria</p>");
+    protected string image = "img/world.jpg";
+
+    protected int challengeNumber = 5;
+}

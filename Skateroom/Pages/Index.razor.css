@@ -1,0 +1,64 @@
+﻿
+
+.story {
+    margin-bottom: 50px;
+}
+
+.intro {
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+.story-text {
+    font-size: 20px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.participants h2,
+.skateroom-info h2 {
+    font-size: 28px;
+    margin-bottom: 15px;
+    color: #00ffff; /* Color fluorescente */
+    text-shadow: 1px 1px 2px #000;
+}
+
+.participants ul {
+    list-style-type: circle;
+    margin-left: 30px;
+    font-size: 20px;
+    line-height: 1.6;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+}
+
+.participants li {
+    margin: 10px;
+}
+
+
+
+
+.participants img {
+    width: 35px; /* Cambia el tamaño de las imágenes de los participantes */
+    height: 45px; /* Cambia el tamaño de las imágenes de los participantes */
+    border-radius: 5px;
+}
+
+.start-button {
+    background-color: #FDB813;
+    color: #000;
+    border: none;
+    padding: 20px 40px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
+    transition: background-color 0.5s;
+}
+
+.start-button:hover {
+    background-color: #FFD700;
+}

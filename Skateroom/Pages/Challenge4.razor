@@ -1,0 +1,12 @@
+﻿@page "/challenge/4"
+
+<ChallengeTemplate Title="@($"Lanzamiento de la nave")" ImageSource="@image" ChallengerNumber="@(challengeNumber)" Description="description">
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>Hay que lanzar la nave. Trata de arrancarlo. Excel. Instrucciones.</p>");
+    protected string image = "img/world.jpg";
+
+    // necesitas la clave para arrancar la nave, proporcionamos un excel
+    protected int challengeNumber = 4;
+}

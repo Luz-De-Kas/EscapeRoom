@@ -1,0 +1,23 @@
+﻿@page "/victory"
+@inject EscapeRoomService SkateRoomService
+@inject NavigationManager NavigationManager
+
+<h2>¡Felicidades, has salvado al mundo!</h2>
+<p>Has completado todas las pruebas del SkateRoom y has asegurado un futuro seguro para la Tierra.</p>
+
+
+<button @onclick="GoHome">Volver a Inicio</button>
+
+
+@code
+{
+    protected override void OnInitialized()
+    {
+        SkateRoomService.FinishGame();
+    }
+
+    public void GoHome()
+    {
+        NavigationManager.NavigateTo($"/");
+    }
+}

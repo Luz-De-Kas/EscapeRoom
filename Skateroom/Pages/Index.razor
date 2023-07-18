@@ -1,0 +1,63 @@
+﻿@page "/"
+@inject NavigationManager NavigationManager
+@inject JSAudioService JSAudioService
+
+<div class="container">
+    <img class="banner-img" src="img/world.jpg" alt="SkateRoom Banner" />
+    <h1>EscapeRoom: La Odisea Galáctica</h1>
+    <div class="story">
+        <!-- Historia... -->
+        <p>@storyContent</p>
+    </div>
+    <div class="participants">
+        <h2>Los Elegidos:</h2>
+        <ul>
+            @foreach (var participant in participants)
+            {
+                <li>
+                    <img class="participant-img" src="img/photo/@participant.Image" alt="@participant.Name" /> @participant.Name
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="skateroom-info">
+        @*<h2>La Odisea Galáctica:</h2>*@
+        @*<img src="img/worldFireAsteroid.jpg" alt="SkateRoom" />*@
+
+        @*<video src="videos/Video Piqueras alta calidad.mp4" controls></video>*@
+        <div class="youtube-video" style="display: flex; justify-content: center; align-items: center;">
+            <iframe width="800" height="450" src="https://www.youtube.com/embed/Kmrwnq7xZ4E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- Descripción del SkateRoom... -->
+        <p>@skateroomDescription</p>
+    </div>
+    <button class="start-button" @onclick="StartSkateRoomAsync">¡Al Infinito!</button>
+</div>
+
+@code {
+
+    private string storyContent = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum.";
+    private MarkupString skateroomDescription = new MarkupString("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem.</p> <p>Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel.</p>");
+
+    private List<Participant> participants = new List<Participant>
+    {
+        new Participant { Name = "Guillermo Enrique", Image = "GuillermoEnriqueDeLasHeras.png" },
+        new Participant { Name = "Anna Maria", Image = "AnnaMariaMartinez.png" },
+        new Participant { Name = "Lucia Alarcon", Image = "LuciaAlarconAguilar.png" },
+        new Participant { Name = "Jose Gallen", Image = "JoseGallenRus.png" },
+        new Participant { Name = "Judith Gonzalez", Image = "JudithGonzalezOro.png" }
+    };
+
+    private async Task StartSkateRoomAsync()
+    {
+        NavigationManager.NavigateTo("/challenge/1");
+        await JSAudioService.PlayAlarmAsync();
+    }
+
+    private class Participant
+    {
+        public string Name { get; set; }
+        public string Image { get; set; }
+    }
+}

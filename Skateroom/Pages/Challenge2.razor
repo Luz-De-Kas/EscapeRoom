@@ -1,0 +1,19 @@
+﻿@page "/challenge/2"
+<ChallengeTemplate Title="@($"Encontrar la nave")" ImageSource="@image" ChallengerNumber="@(challengeNumber)" Description="description">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem.</p>
+    <p>Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel.</p>
+    
+    <p>aparecera el vídeo</p>
+    <p>aparecera las instrucciones</p>
+    <p>aparecera las instrucciones</p>
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>La nave se encuentra custodiada en el interior del monumento Inca mas visitado de Peru.</p><p>Una vez localices la ubicación del templo sagrado, para acceder al mismo deberas ganarte la confianza de sus custodios. Hasta ahora el unico metodo para ganarse su confianza es realizar una danza milenaria muy parecida a una nuestra actual. Si consigues dar con la ubicación del templo te llevara a las pistas del famoso baile que necesitas realizar para acceder a la nave.</p>");
+    protected string image = "img/world.jpg";
+    // Machu Picchu
+    // aparecera el enlace cuando pulsen al boton y pongan machu picchu: https://www.youtube.com/watch?v=CgaL1XW7wdw
+
+    protected int challengeNumber = 2;
+}

@@ -1,0 +1,12 @@
+﻿@page "/test"
+
+<ChallengeTemplate Title="Challenge 2" ImageSource="@image" ChallengerNumber="2" Description="description">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem.</p>
+    <p>Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel.</p>
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem.</p><p>Nullam fringilla cursus risus, quis venenatis nisi elementum vel. Donec auctor velit ac lacus blandit condimentum.</p><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis non erat sem. Nullam fringilla cursus risus, quis venenatis nisi elementum vel.</p>");
+    protected string image = "img/world.jpg";
+}

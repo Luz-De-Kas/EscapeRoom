@@ -1,0 +1,17 @@
+﻿@page "/challenge/1"
+
+<ChallengeTemplate Title="@($"Localizar la ubicación de la nave")" ImageSource="@image" ChallengerNumber="@(challengeNumber)" Description="description">
+    <p>Llave</p>
+    <p>Casco</p>
+    <p>Traje</p>
+    <p>Oxígeno</p>
+    <p>Generador</p>
+    <p>Coca</p>
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>La primera prueba de esta misión es conseguir materiales para poder llevar a cabo la misión.</p><p>Para lograr superar la primera fase necesitais equiparos.</p>");
+    protected string image = "img/world.jpg";
+
+    protected int challengeNumber = 1;
+}

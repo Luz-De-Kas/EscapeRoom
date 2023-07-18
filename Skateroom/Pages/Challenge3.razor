@@ -1,0 +1,12 @@
+﻿@page "/challenge/3"
+
+<ChallengeTemplate Title="@($"Acceso a la nave")" ImageSource="@image" ChallengerNumber="@(challengeNumber)" Description="description">
+</ChallengeTemplate>
+
+@code {
+    protected MarkupString description = new MarkupString("<p>Tenéis 3 minutos para visionar y memorizar el vídeo de la coreografia. Realizar un baile conjunto de la misma de al menos 30 segundos y extraer cuatro fotos de las 4 letras del estribillo. Una vez os hagais las fotos, hay que enviarlas al grupo de whasap de docencia por orden y os facilitaremos un código para pasar a la siguiente fase</p>");
+    protected string image = "img/world.jpg";
+    // se ve imagen con el machu picchu 
+    // temporalizacion de 3 minutos en el video
+    protected int challengeNumber = 3;
+}
